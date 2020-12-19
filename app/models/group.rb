@@ -4,9 +4,6 @@ class Group < ApplicationRecord
     validates_uniqueness_of :name
     enum status: [:hombre, :mujer, :band]
 
-    def to_s
-        status
-    end
 
     def concert_count 
         concerts.count
@@ -23,6 +20,7 @@ class Group < ApplicationRecord
     def end_concert
         concerts.pluck(:date_concert).min.strftime("%Y-%b%d-%a")
     end
+    
     
     
     def duration 
