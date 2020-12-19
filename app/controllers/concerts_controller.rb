@@ -35,7 +35,7 @@ class ConcertsController < ApplicationController
 
     respond_to do |format|
       if @concert.save
-        format.html { redirect_to @concert, notice: 'Concert was successfully created.' }
+        format.html { redirect_to concerts_path, notice: 'Concert was successfully created.' }
         format.json { render :show, status: :created, location: @concert }
       else
         format.html { render :new }
@@ -76,6 +76,6 @@ class ConcertsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def concert_params
-      params.require(:concert).permit(:asistentes, :group_id)
+      params.require(:concert).permit(:asistentes, :group_id, :date_concert, :duration)
     end
 end

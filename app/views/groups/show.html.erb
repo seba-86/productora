@@ -15,12 +15,27 @@
   <%= @group.date_start %>
 </p>
 
-<strong> Max Asistentes</strong>
+<strong> Max Asistentes epeculados:</strong>
 
 <td> <%= @group.people_max %></td>
+<br>
+<br>
+
+<strong>Conciertos este mes:</strong>
+<td><%= @group.concert_month %></td>
+<br>
+<br>
+
+<strong>Duration concert max especulados(minutos):</strong>
+<td><%= @group.duration %></td>
+
+<br>
+<br>
+<strong>Ultimo concierto</strong>
+<td><%= @group.end_concert%></td>
 
 <br>
 <br>
 
-<%= link_to 'Edit', edit_group_path(@group) %> |
+<%= link_to 'Edit', edit_group_path(@group) %> 
 <%= link_to 'Back', groups_path %>
