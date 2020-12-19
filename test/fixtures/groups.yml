@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  integrantes: 1
+  date_start: 2020-12-19
+
+two:
+  name: MyString
+  integrantes: 1
+  date_start: 2020-12-19

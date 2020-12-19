@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Asistentes:</strong>
+  <%= @concert.asistentes %>
+</p>
+
+<%= link_to 'Edit', edit_concert_path(@concert) %> |
+<%= link_to 'Back', concerts_path %>

@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @group.name %>
+</p>
+
+<p>
+  <strong>Integrantes:</strong>
+  <%= @group.integrantes %>
+</p>
+
+<p>
+  <strong>Date start:</strong>
+  <%= @group.date_start %>
+</p>
+
+<strong> Max Asistentes</strong>
+
+<td> <%= @group.people_max %></td>
+
+<br>
+<br>
+
+<%= link_to 'Edit', edit_group_path(@group) %> |
+<%= link_to 'Back', groups_path %>
