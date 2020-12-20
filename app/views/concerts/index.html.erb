@@ -21,7 +21,6 @@
         <td><%= concert.asistentes %></td>
         <td><%= concert.created_at.strftime("%Y-%m-%d") %></td>
         <td><%= concert.date_concert %></td>
-        <td><%= link_to 'Show', concert %></td>
         <td><%= link_to 'Edit', edit_concert_path(concert) %></td>
         <td><%= link_to 'Destroy', concert, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

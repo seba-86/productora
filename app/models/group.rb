@@ -1,9 +1,10 @@
 class Group < ApplicationRecord
     has_many :concerts, dependent: :destroy 
+    has_many :crews, dependent: :destroy 
     validates :status, presence: true
     validates_uniqueness_of :name
     enum status: [:hombre, :mujer, :band]
-
+    accepts_nested_attributes_for :crews, allow_destroy: true
 
     def concert_count 
         concerts.count
@@ -32,4 +33,9 @@ class Group < ApplicationRecord
         date2 = Date.parse('2020-12-31')
         concerts.where("date_concert between ? and ?", date1, date2).count
     end
+
+    def members_name
+        crews.pluck(:integrantes)
+    end
+
 end

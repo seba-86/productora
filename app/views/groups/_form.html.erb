@@ -1,4 +1,4 @@
-<%= form_with(model: group, local: true) do |form| %>
+<%= form_with(model: group, local: true) do |f| %>
   <% if group.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
@@ -12,26 +12,38 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
   </div>
 
   <div class="field">
-    <%= form.label :integrantes %>
-    <%= form.number_field :integrantes %>
+    <%= f.label :integrantes %>
+    <%= f.number_field :integrantes %>
+  </div>
+    
+  <h3>Crews</h3>
+  <div id="crews">
+    <%= f.fields_for :crews do |crew| %>
+      <%= render 'crew_fields', f: crew %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'add crew', f, :crews %>
+    </div>
+  </div>
+  
+
+ 
+  <div class="field">
+    <%= f.label :date_start %>
+    <%= f.date_select :date_start %>
   </div>
 
   <div class="field">
-    <%= form.label :date_start %>
-    <%= form.date_select :date_start %>
-  </div>
-
-  <div class="field">
-    <%= form.label :status %>
-    <%= form.select :status, Group.statuses.keys %>
+    <%= f.label :status %>
+    <%= f.select :status, Group.statuses.keys %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= f.submit %>
   </div>
 <% end %>
