@@ -4,7 +4,7 @@ class Group < ApplicationRecord
     validates :status, presence: true
     validates_uniqueness_of :name
     enum status: [:hombre, :mujer, :band]
-    accepts_nested_attributes_for :crews, allow_destroy: true
+    accepts_nested_attributes_for :crews, reject_if: :all_blank, allow_destroy: true
 
     def concert_count 
         concerts.count
@@ -35,7 +35,7 @@ class Group < ApplicationRecord
     end
 
     def members_name
-        crews.pluck(:integrantes)
+        crews.pluck(:members)
     end
 
 end

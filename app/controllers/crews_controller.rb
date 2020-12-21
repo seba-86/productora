@@ -15,7 +15,7 @@ class CrewsController < ApplicationController
   # GET /crews/new
   def new
     @crew = Crew.new
-
+    
   end
 
   # GET /crews/1/edit
@@ -26,7 +26,8 @@ class CrewsController < ApplicationController
   # POST /crews.json
   def create
     @crew = Crew.new(crew_params)
-
+    
+    
     respond_to do |format|
       if @crew.save
         format.html { redirect_to @crew, notice: 'Crew was successfully created.' }
@@ -70,6 +71,6 @@ class CrewsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def crew_params
-      params.require(:crew).permit(:integrantes, :group_id)
+      params.require(:crew).permit(:members, :group_id)
     end
 end

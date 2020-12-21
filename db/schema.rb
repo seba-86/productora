@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2020_12_20_032531) do
   end
 
   create_table "crews", force: :cascade do |t|
-    t.string "integrantes"
+    t.string "members"
     t.integer "group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

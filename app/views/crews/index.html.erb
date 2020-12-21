@@ -14,7 +14,7 @@
   <tbody>
     <% @crews.each do |crew| %>
       <tr>
-        <td><%= crew.integrantes %></td>
+        <td><%= crew.members %></td>
         <td><%= crew.group %></td>
         <td><%= link_to 'Show', crew %></td>
         <td><%= link_to 'Edit', edit_crew_path(crew) %></td>

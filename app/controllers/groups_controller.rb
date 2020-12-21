@@ -17,17 +17,19 @@ class GroupsController < ApplicationController
   # GET /groups/new
   def new
     @group = Group.new
-    
+   
   end
 
   # GET /groups/1/edit
   def edit
+    
   end
 
   # POST /groups
   # POST /groups.json
   def create
     @group = Group.new(group_params)
+    
 
     respond_to do |format|
       if @group.save
@@ -45,7 +47,7 @@ class GroupsController < ApplicationController
   def update
     respond_to do |format|
       if @group.update(group_params)
-        format.html { redirect_to @group, notice: 'Group was successfully updated.' }
+        format.html { redirect_to groups_path, notice: 'Group was successfully updated.' }
         format.json { render :show, status: :ok, location: @group }
       else
         format.html { render :edit }
@@ -72,11 +74,6 @@ class GroupsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def group_params
-      params.require(:group).permit(:name, :integrantes, :date_start, :status, 
-        crews_attributtes:
-        [:integrantes, 
-        :group_id, 
-        :id, 
-        :_destroy])
+      params.require(:group).permit(:name, :integrantes, :date_start, :status, crews_attributtes: [:id, :members, :group_id, :_destroy])
     end
 end

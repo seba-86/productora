@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :crews
-  resources :groups 
+  resources :groups do
+    resources :crews
+  end
   resources :concerts
   
   root "groups#index"
