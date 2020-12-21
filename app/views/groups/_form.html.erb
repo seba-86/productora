@@ -1,49 +1,30 @@
-<%= form_with(model: group, local: true) do |f| %>
-  <% if group.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
+<%= simple_form_for @group, local: true do |f| %>
+<%= f.error_notification %>
+<%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-      <ul>
-      <% group.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
+<div class="container">
+  <%= f.input :name %>
+  <%= f.input :integrantes %>
 
-  <div class="field">
-    <%= f.label :integrantes %>
-    <%= f.number_field :integrantes %>
-  </div>
-    
+
   <h3>Crews</h3>
   <div id="crews">
     <%= f.fields_for :crews do |crew| %>
-      <%= render 'crew_fields', f: crew %>
+    <%= render 'crew_fields', f: crew %>
     <% end %>
     <div class="links">
       <%= link_to_add_association 'add crew', f, :crews %>
     </div>
   </div>
+
+  <%= f.input :date_start%>
+
+  <%= f.input :status, collection: Group.statuses.keys %>
+
+  <%= f.button :submit, class: "btn-primary" %>
+  <%= button_to 'Back', groups_path, class:" btn-primary mt-5 d-flex " %>
+  <% end %>
+
   
-
- 
-  <div class="field">
-    <%= f.label :date_start %>
-    <%= f.date_select :date_start %>
-  </div>
-
-  <div class="field">
-    <%= f.label :status %>
-    <%= f.select :status, Group.statuses.keys %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
