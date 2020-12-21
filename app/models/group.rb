@@ -35,7 +35,7 @@ class Group < ApplicationRecord
     end
 
     def members_name
-        crews.pluck(:members)
+        crews.pluck(:members).to_s
     end
 
 end

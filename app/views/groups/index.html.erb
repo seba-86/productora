@@ -1,43 +1,45 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Groups</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Integrantes</th>
-      <th>Nombre Integrantes</th>
-      <th>Date start</th>
-      <th>Numero de conciertos</th>
-      <th>Miembros</th>
-      <th> Asistentes</th>
-      
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @groups.each do |group| %>
-      <tr>
-        <td><%= group.name %></td>
-        <td style="text-align: center;"><%= group.integrantes %></td>
-        <td> <%= group.members_name %></td>
-        <td><%= group.date_start %></td>
-        <td style="text-align: center;"> <%= group.concert_count %></td>
-        <td style="text-align: center;"> <%= group.status %></td>
-        <td><%= group.people_count %></td>
-        
-        <td><%= link_to 'Show', group %></td>
-        <td><%= link_to 'Edit', edit_group_path(group) %></td>
-        <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-
+<div class="container table table-bordered">
+  <h1>Groups</h1>
   
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Group', new_group_path %>
+  <table>
+    <thead>
+      <tr>
+        <th class="text-center">Name</th>
+        <th class="text-center">Integrantes</th>
+        <th class="text-center">Nombre Integrantes</th>
+        <th class="text-center px-5">Date start</th>
+        <th class="text-center">Numero de conciertos</th>
+        <th class="text-center">Miembros</th>
+        <th class="text-center"> Asistentes</th>
+        
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <% @groups.each do |group| %>
+        <tr>
+          <td><%= group.name %></td>
+          <td style="text-align: center;"><%= group.integrantes %></td>
+          <td> <%= group.members_name %></td>
+          <td><%= group.date_start %></td>
+          <td style="text-align: center;"> <%= group.concert_count %></td>
+          <td style="text-align: center;"> <%= group.status %></td>
+          <td><%= group.people_count %></td>
+          
+          <td><%= link_to 'Show', group %></td>
+          <td><%= link_to 'Edit', edit_group_path(group) %></td>
+          <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+  
+    
+    </tbody>
+  </table>
+  
+  <br>
+  
+  <%= link_to 'New Group', new_group_path %>
+</div>
