@@ -28,7 +28,8 @@
 
   <div class="field">
     <%= form.label :group_id %>
-    <%= form.select :group_id, options_for_select(@groups), prompt: "Seleciona.."%>
+    <%= form.select :group_id, options_for_select(@groups= Group.all.pluck(:name, :id)), prompt: "Seleciona.."%>
+    
   </div>
 
   
