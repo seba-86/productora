@@ -29,7 +29,11 @@
           <td style="text-align: center;"> <%= group.status %></td>
           <td><%= group.people_count %></td>
           
+          <% if group.concert_count != 0 %>
           <td><%= link_to 'Show', group %></td>
+          <% else %>
+          <td> <%= link_to "New Concert", new_concert_path%></td>
+        <%end %>
           <td><%= link_to 'Edit', edit_group_path(group) %></td>
           <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
